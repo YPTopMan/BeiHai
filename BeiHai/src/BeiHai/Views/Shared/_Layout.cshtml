@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BeiHai</title>
+    <title>@ViewData["Title"] - 北海 - BeiHai</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,11 +26,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-controller="Home" asp-action="Index" class="navbar-brand">BeiHai</a>
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">  <strong>北海(BeiHai)</strong>  摘自于庄子.秋水 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="Index">首页</a></li>
                     <li><a asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
@@ -41,11 +41,13 @@
     <div class="container body-content">
         @RenderBody()
 
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Messages</a></li>
-        </ul>
+
+        <div>
+            <h3>单相思连接</h3>
+            <div id="linkContext">
+
+            </div>
+        </div>
 
 
         <footer>
@@ -71,5 +73,77 @@
     </environment>
 
     @RenderSection("scripts", required: false)
+    <script>
+
+        $(function () {
+
+            var links = [
+                { "Name": "微软", "Href": "http://msdn.microsoft.com/zh-CN/" },
+                { "Name": "Doc", "Href": "https://docs.asp.net/" },
+                { "Name": "博客园", "Href": "http://www.cnblogs.com/" },
+                { "Name": "推酷", "Href": "http://www.tuicool.com/" },
+                { "Name": "SQL", "Href": "http://www.w3school.com.cn/sql/" },
+                { "Name": "GitHub", "Href": "https://github.com/" },
+                { "Name": "当然我在扯淡", "Href": "http://www.yinwang.org/" },
+                { "Name": "腊八粥", "Href": "http://www.labazhou.net/" },
+                { "Name": "FarBox", "Href": " https://www.farbox.com/" },
+                { "Name": "codeplex", "Href": "https://www.codeplex.com/" },
+                { "Name": "info_donet", "Href": "http://www.infoq.com/cn/dotnet/" },
+                { "Name": "第九频道", "Href": "https://channel9.msdn.com/" },
+                { "Name": "图灵社区", "Href": "http://www.ituring.com.cn/" },
+                { "Name": "开心一刻", "Href": "http://www.itmmd.com/boke.html" },
+                { "Name": "爱偷闲", "Href": " http://www.itouxian.com/" }
+
+            ];
+
+            var linksHtml = '';
+
+            for (var i in links) {
+                linksHtml += '<a href="' + links[i].Href + '" target="_blank">' + links[i].Name + '</a>';
+            }
+
+            $("#linkContext").html(linksHtml);
+
+
+            var types = [];
+            types[10]="数据存储";
+            types[11]="服务器";
+            types[12]="编程思想";
+            types[13]="编程语言";
+            types[14] = "框架";
+            types[15] = "源码管理";
+            types[16] = "其他";
+
+
+            var subType;
+
+            subType[10][1001] = "Sql Server";
+            subType[10][1002] = "MySql";
+            subType[10][1003] = "mongodb";
+            subType[10][1004] = "Redis";
+
+            subType[11][1101] = "IIS";
+
+
+            types[12][1201] = "C#";
+            types[12][1202] = "F#";
+            types[12][1203] = "Html";
+            types[12][1204] = "JavaScript";
+
+
+            types[13][1301] = "OOP";
+            types[13][1302] = "AOP";
+
+
+
+            var subSubType;
+
+            subSubType[1001][100101] = "First";
+
+
+
+        });
+
+    </script>
 </body>
 </html>
